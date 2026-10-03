@@ -1,0 +1,100 @@
+:root {
+/* Typography
+  
+Create semantic tokens (--font-heading , --font-body )
+Components will use these tokens, to change fonts later, you only update them here
+
+*/
+  --font-heading: "Bree Serif", serif;
+  --font-body: "Nunito", sans-serif;
+
+/* Typography Scale 
+
+A consistent scale and a predictable spacing between text
+A single source for all typography
+*/
+
+  --font-size-xs: 0.75rem;   /* 12px */
+  --font-size-sm: 0.875rem;  /* 14px */
+  --font-size-md: 1rem;      /* 16px (base) */
+  --font-size-lg: 1.25rem;   /* 20px */
+  --font-size-xl: 1.5rem;    /* 24px */
+  --font-size-2xl: 2rem;     /* 32px */
+  --font-size-3xl: 3rem;     /* 48px */
+  
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.1;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.7;
+
+
+/* Heading Tokens 
+change entire heading scale in one place
+
+all heading are defined here 
+*/
+
+
+  --heading-1-size: var(--font-size-3xl);
+  --heading-2-size: var(--font-size-2xl);
+  --heading-3-size: var(--font-size-xl);
+  --heading-4-size: var(--font-size-lg);
+
+  --heading-line-height: var(--line-height-tight);
+  --heading-weight: var(--font-weight-bold);
+  --heading-font: var(--font-heading);
+
+/* Body Text Tokens
+
+fix text sizing here 
+*/
+  --body-font: var(--font-body);
+  --body-size: var(--font-size-md);
+  --body-line-height: var(--line-height-normal);
+  --body-weight: var(--font-weight-regular);
+
+  --body-size-small: var(--font-size-sm);
+  --body-size-large: var(--font-size-lg);
+
+/* Responsive Typography 
+The CSS clamp() function is used to set a value that will adjust responsively between a minimum value and a maximum value depending on the size of the viewport.
+reference www.w3schools.com if stuck
+*/
+  --heading-1-size: clamp(var(--font-size-2xl), 2.5rem, var(--font-size-3xl));
+  --heading-2-size: clamp(1.5rem, 4vw, 2rem);
+  --heading-3-size: clamp(1.25rem, 3vw, 1.5rem);
+  --heading-4-size: clamp(1.125rem, 2.5vw, 1.25rem);
+  --body-size: clamp(1rem, 1.5vw, 1.125rem);
+
+/* Spacing Scale   font-size: clamp(2rem, 2.5rem + 1vw, 3rem);
+
+eliminate random spacing everything has a consistent scale
+*/
+  --space-0: 0;
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-5: 1.5rem;   /* 24px */
+  --space-6: 2rem;     /* 32px */
+  --space-7: 3rem;     /* 48px */
+  --space-8: 4rem;     /* 64px */
+
+/* Brand Colours (Shared Across Themes) */
+  --brand-barn-red: #5A0F0F;
+  --brand-sun-gold: #E8C9A1;
+  --brand-grass-green: #C7D7A4;
+  --brand-sky-blue: #D8E4F0;
+  --brand-earth-brown: #3A2A1E;
+
+/* Default to light theme tokens */
+  --color-heading: var(--light-heading);
+  --color-text: var(--light-text);
+  --color-accent: var(--light-accent);
+  --color-border: var(--light-border);
+  --color-surface: var(--light-surface);
+  --color-bg: var(--light-bg);
+}

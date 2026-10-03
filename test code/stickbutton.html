@@ -1,0 +1,93 @@
+<style>
+
+  :root {
+  /* -------------------------------------- */
+  /* BRAND COLOURS (shared across themes)   */
+  /* -------------------------------------- */
+
+  --brand-barn-red: #5A0F0F;        /* Deep barn red from shadows */
+  --brand-sun-gold: #E8C9A1;        /* Warm golden highlight */
+  --brand-grass-green: #C7D7A4;     /* Light grassy green */
+  --brand-sky-blue: #D8E4F0;        /* Pale sky blue */
+  --brand-earth-brown: #3A2A1E;     /* Deep earthy brown */
+
+  /* -------------------------------------- */
+  /* LIGHT THEME                            */
+  /* -------------------------------------- */
+
+  --light-bg: #F9F3E6;              /* Soft warm off‑white background */
+  --light-surface: #F4E9D2;         /* Creamy card/panel background */
+  --light-text: #3A2A1E;            /* Dark earthy brown for body text */
+  --light-heading: #5A0F0F;         /* Barn red for headings */
+  --light-border: #E8C9A1;          /* Warm subtle border */
+  --light-accent: #C7D7A4;          /* Green accent for buttons/links */
+  --light-accent-hover: #AFC48B;    /* Slightly darker hover state */
+
+  /* -------------------------------------- */
+  /* DARK THEME                             */
+  /* -------------------------------------- */
+
+  --dark-bg: #1F2E1A;               /* Deep forest green background */
+  --dark-surface: #2D3F52;          /* Blue‑grey surface panels */
+  --dark-text: #F4E9D2;             /* Warm cream text for readability */
+  --dark-heading: #E8C9A1;          /* Golden highlight for headings */
+  --dark-border: #3A2A1E;           /* Earthy brown border */
+  --dark-accent: #C7D7A4;           /* Same green accent works in dark */
+  --dark-accent-hover: #D8E4F0;     /* Light sky blue hover */
+}
+
+
+ .sticky-btn {
+  position: fixed;
+  bottom: 20px;   /* distance from bottom of viewport */
+  right: 20px;    /* distance from right of viewport */
+  padding: 12px 20px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 999;   /* keeps it above header/footer */
+} 
+.booking-btn {
+  position: fixed;
+  bottom: 20px;   /* bottom of the visual screen */
+  left: 50%;
+  transform: translateX(-50%); /* centers it */
+  padding: 14px 24px;
+  background: #4CAF50;
+  color: white;
+  border-radius: 8px;
+  z-index: 999;
+}
+@media (max-width: 600px) {
+  .booking-btn {
+    bottom: 90px; /* lifted above thumbs + any mobile UI */
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: 80%;
+    padding: 16px;
+    font-size: 1.1rem;
+  }
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+  .booking-btn {
+    bottom: 40px;
+    right: 40px;
+    padding: 16px 28px;
+  }
+}
+@media (min-width: 1025px) {
+  .booking-btn {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+
+
+</style>
+<html>
+ <button class="sticky-btn">Book Now</button>   
+</html>

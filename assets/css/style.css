@@ -1,0 +1,196 @@
+/* ----------------------------------------------
+   ROOT TOKENS — COLOURS, TYPOGRAPHY, SPACING, RADII, ETC.
+   ---------------------------------------------- */
+
+:root {
+  /* Typography */
+  --font-body: "Nunito", sans-serif;
+  --font-heading: "Bree Serif", serif;
+
+  /* Colour Palette (Light mode) */
+  --color-bg: var(--farm-bg, #faf9f6);
+  --color-surface: var(--farm-surface, #ffffff);
+  --color-text: var(--farm-text, #2a2a2a);
+  --color-text-muted: var(--farm-text-muted, #6b6b6b);
+  --color-border: var(--farm-border, #e2e2e2);
+  --color-accent: var(--farm-accent, #7a9e7e);
+  --color-accent-strong: var(--farm-accent-strong, #4f7a55);
+
+  /* Spacing Scale (4pt base) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* Radii */
+  --radius-s: 4px;
+  --radius-m: 8px;
+  --radius-l: 16px;
+  --radius-round: 999px;
+
+  /* Shadows */
+  --shadow-s: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-m: 0 2px 6px rgba(0,0,0,0.08);
+  --shadow-l: 0 4px 12px rgba(0,0,0,0.12);
+
+  /* Line Heights */
+  --lh-body: 1.6;
+  --lh-heading: 1.25;
+
+  /* Max Widths */
+  --max-width-text: 65ch;
+  --max-width-container: 1200px;
+}
+
+/* ----------------------------------------------
+   DARK MODE
+   ---------------------------------------------- */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: var(--farm-bg-dark, #1c1c1c);
+    --color-surface: var(--farm-surface-dark, #262626);
+    --color-text: var(--farm-text-dark, #f2f2f2);
+    --color-text-muted: var(--farm-text-muted-dark, #b3b3b3);
+    --color-border: var(--farm-border-dark, #3a3a3a);
+    --color-accent: var(--farm-accent-dark, #9bc9a1);
+    --color-accent-strong: var(--farm-accent-strong-dark, #7ab583);
+  }
+}
+
+/* ----------------------------------------------
+   GLOBAL ELEMENT DEFAULTS
+   ---------------------------------------------- */
+
+html {
+  font-family: var(--font-body);
+  line-height: var(--lh-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: var(--lh-heading);
+  margin: var(--space-5) 0 var(--space-3);
+  color: var(--color-text);
+}
+
+p {
+  margin: 0 0 var(--space-4);
+  max-width: var(--max-width-text);
+}
+
+a {
+  color: var(--color-accent-strong);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  border-radius: var(--radius-m);
+}
+
+button {
+  font-family: inherit;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-m);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: var(--color-accent);
+  color: white;
+}
+
+/* --------------------------------------------------
+   Shape, Typography & Layout Tokens
+   -------------------------------------------------- */
+:root {
+  /* Border Radius Scale */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+  --radius-round: 999px; /* pills, badges, buttons */
+
+  /* Typography Scale (Bree Serif for headings, Nunito for body) */
+  --font-body: "Nunito", sans-serif;
+  --font-heading: "Bree Serif", serif;
+
+  --fs-h1: clamp(2.2rem, 4vw, 3rem);
+  --fs-h2: clamp(1.8rem, 3vw, 2.4rem);
+  --fs-h3: clamp(1.5rem, 2.5vw, 2rem);
+  --fs-h4: clamp(1.3rem, 2vw, 1.6rem);
+  --fs-h5: clamp(1.1rem, 1.5vw, 1.3rem);
+  --fs-h6: clamp(1rem, 1.2vw, 1.1rem);
+
+  --fs-body-lg: 1.125rem;
+  --fs-body: 1rem;
+  --fs-body-sm: 0.875rem;
+
+  /* Line Heights */
+  --lh-heading: 1.2;
+  --lh-body: 1.6;
+
+  /* Spacing Scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+}
+
+/* Typography Defaults */
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--color-text);
+  background: var(--color-surface);
+  margin: 0;
+  padding: 0;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: var(--lh-heading);
+  margin: var(--space-4) 0 var(--space-2);
+  color: var(--color-heading);
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+h5 { font-size: var(--fs-h5); }
+h6 { font-size: var(--fs-h6); }
+
+/* Rounded Corners Utility Classes */
+.round-xs { border-radius: var(--radius-xs); }
+.round-sm { border-radius: var(--radius-sm); }
+.round-md { border-radius: var(--radius-md); }
+.round-lg { border-radius: var(--radius-lg); }
+.round-xl { border-radius: var(--radius-xl); }
+.round-pill { border-radius: var(--radius-round); }
+
+

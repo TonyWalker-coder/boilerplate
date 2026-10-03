@@ -1,0 +1,100 @@
+<style>
+/* Container */
+.wizard {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+}
+
+/* Hide all steps by default */
+.step {
+  display: none;
+}
+
+/* Show the checked step */
+#step1:checked ~ .content #s1,
+#step2:checked ~ .content #s2,
+#step3:checked ~ .content #s3,
+#step4:checked ~ .content #s4 {
+  display: block;
+}
+
+/* Navigation buttons */
+.nav-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+button,
+label.button {
+  background: #2d6a4f;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+}
+</style>
+
+<div class="wizard">
+
+  <!-- Hidden radios -->
+  <input type="radio" name="steps" id="step1" checked>
+  <input type="radio" name="steps" id="step2">
+  <input type="radio" name="steps" id="step3">
+  <input type="radio" name="steps" id="step4">
+
+  <div class="content">
+
+    <!-- Step 1 -->
+    <section id="s1" class="step">
+      <h3>Account Info</h3>
+      <input class="form-control" placeholder="Name">
+      <input class="form-control" placeholder="Email">
+
+      <div class="nav-buttons">
+        <span></span>
+        <label for="step2" class="button">Next</label>
+      </div>
+    </section>
+
+    <!-- Step 2 -->
+    <section id="s2" class="step">
+      <h3>Personal Info</h3>
+      <input class="form-control" placeholder="Address">
+      <input class="form-control" placeholder="City">
+
+      <div class="nav-buttons">
+        <label for="step1" class="button">Back</label>
+        <label for="step3" class="button">Next</label>
+      </div>
+    </section>
+
+    <!-- Step 3 -->
+    <section id="s3" class="step">
+      <h3>Payment Info</h3>
+      <input class="form-control" placeholder="Card Number">
+      <input class="form-control" placeholder="Card Holder Name">
+
+      <div class="nav-buttons">
+        <label for="step2" class="button">Back</label>
+        <label for="step4" class="button">Next</label>
+      </div>
+    </section>
+
+    <!-- Step 4 -->
+    <section id="s4" class="step">
+      <h3>Confirm</h3>
+      <p>Thanks for submitting your details.</p>
+
+      <div class="nav-buttons">
+        <label for="step3" class="button">Back</label>
+        <button type="submit">Submit</button>
+      </div>
+    </section>
+
+  </div>
+</div>

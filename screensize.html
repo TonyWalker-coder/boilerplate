@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Screen Width Tester</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #222;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    .card {
+        background: #333;
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 0 15px rgba(0,0,0,.4);
+        min-width: 320px;
+    }
+
+    h1 {
+        margin-top: 0;
+    }
+
+    .value {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #4fc3f7;
+    }
+
+    p {
+        margin: 0.75rem 0;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Device Test</h1>
+
+    <p>Viewport Width</p>
+    <div id="width" class="value">0</div>
+
+    <p>Viewport Height</p>
+    <div id="height" class="value">0</div>
+
+    <p>Screen Size</p>
+    <div id="screenSize" class="value">0 × 0</div>
+
+    <p>Pixel Ratio</p>
+    <div id="ratio" class="value">0</div>
+
+    <p>Breakpoint</p>
+    <div id="breakpoint" class="value">Unknown</div>
+</div>
+
+<script>
+function updateInfo() {
+
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    document.getElementById("width").textContent = width + "px";
+    document.getElementById("height").textContent = height + "px";
+
+    document.getElementById("screenSize").textContent =
+        screen.width + " × " + screen.height;
+
+    document.getElementById("ratio").textContent =
+        window.devicePixelRatio;
+
+    let breakpoint = "Desktop";
+
+    if (width < 576) {
+        breakpoint = "Mobile";
+    } else if (width < 768) {
+        breakpoint = "Large Mobile";
+    } else if (width < 992) {
+        breakpoint = "Tablet";
+    } else if (width < 1200) {
+        breakpoint = "Laptop";
+    }
+
+    document.getElementById("breakpoint").textContent = breakpoint;
+}
+
+updateInfo();
+
+window.addEventListener("resize", updateInfo);
+</script>
+
+</body>
+</html>
