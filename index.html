@@ -1,15 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
+    :root {
+        --black: (black);
+        --white: (white);
+
+
+    }
+
+    :root[data-theme="lightblue"] {
+        --bg-page: #8d85ff;
+        --bg-card: #93a9f3;
+
+        --dark-banner: #673de5;
+
+        --text-heading: white;
+        --dark-text-heading: #2f1c6b;
+
+        --text-primary: #011f27;
+        --dark-text-primary: #3505c4;
+
+        --border-light: #a6d5e3;
+        --border-dark: #560797;
+
+        --button: #d5dfff;
+        --button-primary: #8ba5fa;
+        --button-primary-hover: #4461bd;
+
+    }
+
+    :root[data-theme="dark"] {
+        --bg-page: #010101;
+        --bg-card: #262626;
+
+        --dark-banner: #2c3934;
+
+        --text-heading: white;
+        --dark-text-heading: rgb(129, 125, 125);
+
+        --text-primary: #fefefe;
+        --dark-text-primary: #f04233;
+
+        --border-light: #f4c2bd;
+        --border-dark: #db6f62;
+
+        --button-primary: #ffffff;
+        --button: #5c5c5e;
+        --button-primary-hover: #4461bd;
+    }
+
+    :root[data-theme="winter"] {
+        --bg-page: #456388;
+        --bg-card: #d0e2ec;
+
+        --dark-banner: #a3c3d8;
+
+
+        --text-heading: #d7d7d8;
+        --dark-text-heading: #1d1b28;
+
+        --text-primary: #fffffd;
+        --dark-text-primary: #03162e;
+
+
+        --border-light: #c592b7;
+        --border-dark: #1124a3;
+
+        --button-primary: #2E7D32;
+        --button: #5c5c5e;
+        --button-primary-hover: #1B5E20;
+    }
+
+    :root[data-theme="grey"] {
+        --bg-page: #cfd0d2;
+        --bg-card: #d8d8d8;
+
+        --dark-banner: #77787a;
+
+
+        --text-heading: #000000;
+        --dark-text-heading: #061267;
+
+        --text-primary: #191b1a;
+        --dark-text-primary: #00497b;
+
+
+        --border-light: #147874;
+        --border-dark: #1124a3;
+
+        --button-primary: #6dbef5;
+        --button: #20c4bd;
+        --button-primary-hover: #1B5E20;
+    }
+
+    :root[data-theme="light"] {
+        --bg-page: #ffffff;
+        --bg-card: #d9e9f7;
+
+        --dark-banner: #9dc4ee;
+
+
+        --text-heading: #081a35;
+        --dark-text-heading: #1d1f21;
+
+        --text-primary: #0906a1;
+        --dark-text-primary: #041b04;
+
+
+        --border-light: #c592b7;
+        --border-dark: #1124a3;
+
+        --button-primary: #826dc0;
+        --button: #7b66ff;
+        --button-primary-hover: #471ea7;
+    }
+
+    :root[data-theme="therapy"] {
+        --bg-page: #0f6fbc;
+        --bg-card: #8dffc6;
+
+        --dark-banner: #0b7946;
+
+
+        --text-heading: #white;
+        --dark-text-heading: #0efebd;
+
+        --text-primary: #882f21;
+        --dark-text-primary: #dad2a3;
+
+
+        --border-light: #c592b7;
+        --border-dark: #1124a3;
+
+        --button-primary: #e4b22a;
+        --button: #fff4b3;
+        --button-primary-hover: #1B5E20;
+    }
 
     .navbar {
         display: -webkit-flex;
         display: flex;
         list-style-type: none;
         justify-content: flex-end;
-        background: blue;
-        color: yellow;
+        background: var(--dark-banner);
+        color: var(--text-heading);
         padding: 0.75rem 0.5rem;
+        border: 0;
     }
 
     svg {
@@ -39,15 +175,22 @@
         cursor: pointer;
         width: 48px;
         height: 48px;
+        color: currentColor;
+        fill: currentColor;
     }
 
-    .menu-btn img {
-        width: 28px;
+    .menu-btn svg {
+        width: 50px;
         height: 28px;
+        stroke: currentColor;
+        fill: currentColor;
     }
 
 
-    
+    .theme-responsive {
+        font-size: clamp(1.75rem, 3vw, 3rem);
+        margin: 0;
+    }
 
     /* SLIDE PANEL */
 
@@ -58,7 +201,7 @@
         display: flex;
         flex-direction: column;
 
-        background: yellow;
+        background: var(--bg-card);
 
         transition: max-height 0.3s ease;
     }
@@ -72,7 +215,7 @@
         padding: 1rem;
 
         text-decoration: none;
-        color: inherit;
+        color: currentColor;
 
         border-bottom: 1px solid rgba(255, 255, 255, .1);
     }
@@ -90,16 +233,33 @@
     }
 
     /* Medium shadow */
-        .shadow-medium {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-        }
+    .shadow-medium {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
 
-        /* Heavy shadow */
-        .shadow-heavy {
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
-        }
+    /* Heavy shadow */
+    .shadow-heavy {
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+    }
 
-    
+    body {
+        background-color: var(--bg-page);
+        border: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    .close-icon {
+        display: none;
+    }
+
+    .menu-btn.open .hamburger {
+        display: none;
+    }
+
+    .menu-btn.open .close-icon {
+        display: inline;
+    }
 </style>
 
 <body>
@@ -107,8 +267,8 @@
 
         <div class="navbar">
             <div class="left">
-                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="1056.661756pt" height="1488.508813pt"
-                    viewBox="0 0 1056.661756 1488.508813" preserveAspectRatio="xMidYMid meet">
+                <svg version="1.0" width="1056.661756pt" height="1488.508813pt" viewBox="0 0 1056.661756 1488.508813"
+                    preserveAspectRatio="xMidYMid meet">
                     <g transform="translate(-471.748039,1742.722480) scale(0.100000,-0.100000)" stroke="none">
                         <path d="M6420 17424 c-131 -15 -211 -31 -375 -77 -169 -47 -429 -181 -597
                             -307 -401 -301 -639 -713 -719 -1245 -15 -101 -15 -365 0 -470 42 -285 149
@@ -210,10 +370,27 @@
             </div>
 
             <button id="menuBtn" class="menu-btn" aria-label="Open menu" aria-expanded="false">
+                <span class="hamburger"><svg viewBox="0 0 24 24" fill="none">
+                        <path d="M20 7L4 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M20 12L4 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M20 17L4 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                    </svg></span>
+                <span class="close-icon"><svg viewBox="0 0 24 24" fill="none">
+                        <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg></span>
 
-                <img id="menuIcon" src="assets/icons/burger1.png" alt="Open menu">
+
             </button>
+            <div>
+
+            </div>
         </div>
+        </div>
+
+        <div style="text-align: left;">
+            <p>For this theme: <span id="thisTheme"></span></p>
+            <span id="problems"></span>
         </div>
 
     </header>
@@ -226,15 +403,25 @@
         <button class="theme-toggle">
             🌙 Dark Mode
         </button>
+        <button id="themeToggle" class="theme-toggle" aria-label="Change site theme" title="Change site theme">
+            <span class="theme-responsive" aria-hidden="true">🎨</span><span id="currentTheme"></span>
+        </button>
+        <span id="currentTheme"></span>
     </nav>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
     <script>
 
         const menuBtn = document.getElementById("menuBtn");
         const menu = document.getElementById("mobileMenu");
-        const menuIcon = document.getElementById("menuIcon");
+
+
+
 
         menuBtn.addEventListener("click", () => {
+
+            console.log("Menu button clicked");
 
             menu.classList.toggle("open");
 
@@ -242,19 +429,55 @@
 
             menuBtn.setAttribute("aria-expanded", isOpen);
 
-            if (isOpen) {
-                menuIcon.style.display = "none";
-                menuBtn.innerHTML = "✕";
-            } else {
-                menuBtn.innerHTML = `
-            <img
-                id="menuIcon"
-                src="assets/icons/burger1.png"
-                alt="Open menu"
-            >`;
-            }
+            menuBtn.classList.toggle("open", isOpen);
 
         });
+
+        document.getElementById("themeToggle").addEventListener("click", () => {
+
+            const themes = ["winter", "therapy", "light", "lightblue", "dark", "grey"];
+
+            const root = document.documentElement;
+            const currentTheme = root.getAttribute("data-theme") || themes[0];
+            const currentIndex = themes.indexOf(currentTheme);
+
+            const nextTheme = themes[(currentIndex + 1) % themes.length];
+
+            root.setAttribute("data-theme", nextTheme);
+            localStorage.setItem("theme", nextTheme);
+
+            const ThemeIs = document.getElementById("currentTheme");
+            const Theme_Is = document.getElementById("thisTheme");
+
+            ThemeIs.textContent =
+                (nextTheme);
+            Theme_Is.textContent =
+                (nextTheme);
+
+
+            const themeNotes = {
+                winter: "Check snow icon contrast",
+                spring: "Check green button visibility",
+                light: "✔️",
+                lightblue: "❌ --dark-text-heading: #758ad6 on --bg-card: #89d7fe",
+                dark: "✔️",
+                grey: "✔️"
+            };
+
+            const themeStatus = document.getElementById("problems");
+
+            themeStatus.textContent =
+                themeNotes[nextTheme] || "No theme-specific notes";
+
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const savedTheme = localStorage.getItem("theme") || "spring";
+            document.documentElement.setAttribute("data-theme", savedTheme);
+        });
+
+
+
     </script>
 </body>
 

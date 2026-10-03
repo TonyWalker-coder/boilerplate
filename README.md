@@ -21,3 +21,9 @@ Displays:
 - Breakpoint information
 
 Useful for validating responsive layouts on real devices.
+
+
+// Accessibility note:
+// Modals should contain a reliable final focusable element.
+// Select/dropdown controls alone may allow focus to escape
+// before the focus trap can redirect it in some browsers.
