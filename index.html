@@ -217,7 +217,7 @@
         text-decoration: none;
         color: currentColor;
 
-        border-bottom: 1px solid rgba(255, 255, 255, .1);
+        border-bottom: 1px solid var(--border-light);
     }
 
     .theme-toggle {
@@ -228,8 +228,9 @@
     }
 
     button:focus {
-        outline: 2px solid #fff;
+        outline: 2px solid var(--border-dark);
         outline-offset: 2px;
+        padding: auto;
     }
 
     /* Medium shadow */
@@ -416,12 +417,8 @@
         const menuBtn = document.getElementById("menuBtn");
         const menu = document.getElementById("mobileMenu");
 
-
-
-
         menuBtn.addEventListener("click", () => {
 
-            console.log("Menu button clicked");
 
             menu.classList.toggle("open");
 

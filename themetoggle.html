@@ -152,6 +152,27 @@
             --button: #fff4b3;
             --button-primary-hover: #1B5E20;
         }
+        :root[data-theme="brown"] {
+            --bg-page: #602718;
+            --bg-card: #8b5b4f;
+
+            --dark-banner: #77392a;
+
+
+            --text-heading: #efdaa8;
+            --dark-text-heading: #FEC20B;
+
+            --text-primary: #decaa2;
+            --dark-text-primary: #e7cc8c;
+
+
+            --border-light: #c7850b;
+            --border-dark: #412c05;
+
+            --button-primary: #705118;
+            --button: #362913;
+            --button-primary-hover: #e09651;
+        }
 
         body {
             background-color: var(--bg-page);
@@ -275,11 +296,14 @@
 
         .banner {
 
-            height: 100px;
+            height: 200px;
             width: 100%;
             background-color: var(--dark-banner);
             margin-bottom: 10px;
 
+        }
+        .banner p{
+            margin: 2px;
         }
 
         
@@ -309,6 +333,8 @@
         <div class="banner">
             <h2>This is a Heading title on a banner</h1>
                 <h2 class="h-d">This is a dark heading on a banner</h1>
+                    <p>This is primary text on banner</p>
+            <p class="p-d">This is dark text on banner</p>
 
         </div>
 
@@ -354,7 +380,7 @@
 
         document.getElementById("themeToggle").addEventListener("click", () => {
 
-            const themes = ["winter", "therapy", "light", "lightblue", "dark", "grey"];
+            const themes = ["winter", "therapy", "light", "lightblue", "dark", "grey","brown"];
 
             const root = document.documentElement;
             const currentTheme = root.getAttribute("data-theme") || themes[0];
@@ -380,7 +406,8 @@
             light: "✔️",
             lightblue: "❌ --dark-text-heading: #758ad6 on --bg-card: #89d7fe",
             dark: "✔️",
-            grey: "✔️"
+            grey: "✔️",
+            brown: "✔️."
         };
 
         const themeStatus = document.getElementById("problems");
